@@ -1,0 +1,71 @@
+@model IEnumerable<USMP.Models.Usmp>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1 class="display-4">HOME</h1>
+
+
+<h1>Formulario de Registro</h1>
+    <form action="#" method="post">
+        <label for="dni">CODIGO:</label>
+        <input type="text" id="dni" name="dni" required><br><br>
+        
+        <label for="nombre">Nombre:</label>
+        <input type="text" id="nombre" name="nombre" required><br><br>
+        
+        <label for="apellido">Apellido:</label>
+        <input type="text" id="apellido" name="apellido" required><br><br>
+        <label for="dni">DNI:</label>
+        <input type="text" id="dni" name="dni" required><br><br>
+        
+        <p>
+    <a class="btn btn-primary" asp-action="Create">REGISTRAR</a>
+</p>
+        <input type="submit" value="reset">
+        <br>
+
+    </form>
+<table class="table table-striped">
+    <thead class="thead-dark">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Nombre)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Telefono)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Dni)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Observacion)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nombre)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Telefono)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Direccion)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Observacion)
+            </td>
+            <td>
+                <a class="btn btn-warning" asp-action="Edit" asp-route-id="@item.Id">ACTUALIZAR</a> |
+                
+                <a class="btn btn-danger" asp-action="Delete" asp-route-id="@item.Id">ELIMINAR</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
